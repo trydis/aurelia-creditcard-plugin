@@ -1,0 +1,7 @@
+<template>
+  <require from="aurelia-creditcard-plugin"></require>
+  <input ref="i" credit-card="number.bind: i.value" credit-card.ref="cc" />
+  <div>Formatted: ${cc.formatted}</div>
+  <div>Eager card type: ${cc.eagerType}</div>
+  <div>Card type: ${cc.type}</div>
+</template>
