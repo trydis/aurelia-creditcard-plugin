@@ -4,6 +4,7 @@
       "aurelia-bootstrapper": "npm:aurelia-bootstrapper@^2.0.1",
       "aurelia-pal": "npm:aurelia-pal@^1.2.0",
       "aurelia-pal-browser": "npm:aurelia-pal-browser@^1.1.0",
+      "bootstrap": "github:twbs/bootstrap@^3.3.7",
       "font-awesome": "npm:font-awesome@^4.7.0"
     },
     "devDependencies": {
