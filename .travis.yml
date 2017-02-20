@@ -1,0 +1,19 @@
+language: node_js
+
+node_js:
+- node
+
+before_script:
+- npm install -g gulp
+- npm install -g karma-cli
+- npm install -g jspm
+- jspm install
+- jspm config registries.github.auth $JSPM_GITHUB_AUTH_TOKEN
+
+script:
+- gulp build
+- gulp test
+
+env:
+  global:
+    secure: ECqvnw7tNkOccDLA1QyMiHOvLYc7gBDeC1+djfPzpkTG2GFxrPqoj8Bo3Cf/Y5oomyaUtXuNRlsCvCVF8nQZwjzvGj4P9CbdKiIFetKgqbZvJ0oDhti0JiJlkMb9ta0Kx2+VJsYy8+fNrps9bhLcBcJO2xXRbWVPxf1YS0UbhX6qR916InDKmnxrbQcF9qbHi8MQ3aHxhSoW169WOiNQphgaOtXCUk2AVR2qfbl/lhPDYovaVrnXa4vooo9VCz4rYDcA9OTeWAaLCX/fsPzgbL9S4j1bG3ed7s+2G1Ofqw8Kj/5PbaQYNY8rZ1hGeP/R1kgjbjjC1zkgxyBBGYj/SsskV7oxZZgM1muY9s7ZqbQrHczgP8ZbSus9Y0kq4a+p4OXm92vzZxAf3K50YS/HtphsnhXCj93UltBy6YlwSmJAxOJ+5AnHrXd40qlcTwtuLzd4nDGuhgnssmJj0VZxqsjjnAbEan346Nqjsz90AG76iPXOhSNpGvjMnYvaiQuw+bk7+lXhL70toITT7yS2wk4FLGiSs0fBqhAIWVd4THda7TYu1IVS5NahXNMNlKyhZ+0iIX47vu6BXy/KoSG89m2JhBrWATINaVfdCZlM6dm3EV24Rf4RkK3uljufFGYtg/uR1OkE1UOumlvQgkwMV6rrRHIO8w+rXhbvB2PS9Ig=
