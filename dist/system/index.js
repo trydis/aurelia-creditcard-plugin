@@ -4,7 +4,7 @@ System.register([], function (_export, _context) {
   "use strict";
 
   function configure(config) {
-    config.globalResources('./credit-card-attribute');
+    config.globalResources('./credit-card-number-attribute', './credit-card-cvc-attribute');
   }
 
   _export('configure', configure);

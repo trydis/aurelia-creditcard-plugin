@@ -3,7 +3,7 @@
 System.register(['aurelia-framework', './creditcards'], function (_export, _context) {
   "use strict";
 
-  var bindable, creditcards, _desc, _value, _class, _descriptor, _descriptor2, _descriptor3, _descriptor4, CreditCardCustomAttribute;
+  var bindable, creditcards, _desc, _value, _class, _descriptor, _descriptor2, _descriptor3, _descriptor4, CreditCardNumberCustomAttribute;
 
   function _initDefineProp(target, property, descriptor, context) {
     if (!descriptor) return;
@@ -61,9 +61,9 @@ System.register(['aurelia-framework', './creditcards'], function (_export, _cont
       creditcards = _creditcards.default;
     }],
     execute: function () {
-      _export('CreditCardCustomAttribute', CreditCardCustomAttribute = (_class = function () {
-        function CreditCardCustomAttribute() {
-          _classCallCheck(this, CreditCardCustomAttribute);
+      _export('CreditCardNumberCustomAttribute', CreditCardNumberCustomAttribute = (_class = function () {
+        function CreditCardNumberCustomAttribute() {
+          _classCallCheck(this, CreditCardNumberCustomAttribute);
 
           _initDefineProp(this, 'number', _descriptor, this);
 
@@ -74,13 +74,14 @@ System.register(['aurelia-framework', './creditcards'], function (_export, _cont
           _initDefineProp(this, 'type', _descriptor4, this);
         }
 
-        CreditCardCustomAttribute.prototype.numberChanged = function numberChanged(newValue, oldValue) {
-          this.formatted = creditcards.card.format(newValue);
-          this.eagerType = creditcards.card.type(newValue, true);
-          this.type = creditcards.card.type(newValue);
+        CreditCardNumberCustomAttribute.prototype.numberChanged = function numberChanged(newValue) {
+          var parsed = creditcards.card.parse(newValue);
+          this.formatted = creditcards.card.format(parsed);
+          this.eagerType = creditcards.card.type(parsed, true);
+          this.type = creditcards.card.type(parsed);
         };
 
-        return CreditCardCustomAttribute;
+        return CreditCardNumberCustomAttribute;
       }(), (_descriptor = _applyDecoratedDescriptor(_class.prototype, 'number', [bindable], {
         enumerable: true,
         initializer: null
@@ -95,7 +96,7 @@ System.register(['aurelia-framework', './creditcards'], function (_export, _cont
         initializer: null
       })), _class));
 
-      _export('CreditCardCustomAttribute', CreditCardCustomAttribute);
+      _export('CreditCardNumberCustomAttribute', CreditCardNumberCustomAttribute);
     }
   };
 });

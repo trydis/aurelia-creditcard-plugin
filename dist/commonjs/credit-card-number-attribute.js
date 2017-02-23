@@ -1,4 +1,19 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.CreditCardNumberCustomAttribute = undefined;
+
 var _desc, _value, _class, _descriptor, _descriptor2, _descriptor3, _descriptor4;
+
+var _aureliaFramework = require('aurelia-framework');
+
+var _creditcards = require('./creditcards');
+
+var _creditcards2 = _interopRequireDefault(_creditcards);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _initDefineProp(target, property, descriptor, context) {
   if (!descriptor) return;
@@ -9,6 +24,8 @@ function _initDefineProp(target, property, descriptor, context) {
     value: descriptor.initializer ? descriptor.initializer.call(context) : void 0
   });
 }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
   var desc = {};
@@ -43,11 +60,10 @@ function _initializerWarningHelper(descriptor, context) {
   throw new Error('Decorating class property failed. Please ensure that transform-class-properties is enabled.');
 }
 
-import { bindable } from 'aurelia-framework';
-import creditcards from './creditcards';
+var CreditCardNumberCustomAttribute = exports.CreditCardNumberCustomAttribute = (_class = function () {
+  function CreditCardNumberCustomAttribute() {
+    _classCallCheck(this, CreditCardNumberCustomAttribute);
 
-export let CreditCardCustomAttribute = (_class = class CreditCardCustomAttribute {
-  constructor() {
     _initDefineProp(this, 'number', _descriptor, this);
 
     _initDefineProp(this, 'formatted', _descriptor2, this);
@@ -57,21 +73,24 @@ export let CreditCardCustomAttribute = (_class = class CreditCardCustomAttribute
     _initDefineProp(this, 'type', _descriptor4, this);
   }
 
-  numberChanged(newValue, oldValue) {
-    this.formatted = creditcards.card.format(newValue);
-    this.eagerType = creditcards.card.type(newValue, true);
-    this.type = creditcards.card.type(newValue);
-  }
-}, (_descriptor = _applyDecoratedDescriptor(_class.prototype, 'number', [bindable], {
+  CreditCardNumberCustomAttribute.prototype.numberChanged = function numberChanged(newValue) {
+    var parsed = _creditcards2.default.card.parse(newValue);
+    this.formatted = _creditcards2.default.card.format(parsed);
+    this.eagerType = _creditcards2.default.card.type(parsed, true);
+    this.type = _creditcards2.default.card.type(parsed);
+  };
+
+  return CreditCardNumberCustomAttribute;
+}(), (_descriptor = _applyDecoratedDescriptor(_class.prototype, 'number', [_aureliaFramework.bindable], {
   enumerable: true,
   initializer: null
-}), _descriptor2 = _applyDecoratedDescriptor(_class.prototype, 'formatted', [bindable], {
+}), _descriptor2 = _applyDecoratedDescriptor(_class.prototype, 'formatted', [_aureliaFramework.bindable], {
   enumerable: true,
   initializer: null
-}), _descriptor3 = _applyDecoratedDescriptor(_class.prototype, 'eagerType', [bindable], {
+}), _descriptor3 = _applyDecoratedDescriptor(_class.prototype, 'eagerType', [_aureliaFramework.bindable], {
   enumerable: true,
   initializer: null
-}), _descriptor4 = _applyDecoratedDescriptor(_class.prototype, 'type', [bindable], {
+}), _descriptor4 = _applyDecoratedDescriptor(_class.prototype, 'type', [_aureliaFramework.bindable], {
   enumerable: true,
   initializer: null
 })), _class);

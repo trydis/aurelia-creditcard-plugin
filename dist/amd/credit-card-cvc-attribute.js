@@ -4,7 +4,7 @@ define(['exports', 'aurelia-framework', './creditcards'], function (exports, _au
   Object.defineProperty(exports, "__esModule", {
     value: true
   });
-  exports.CreditCardCustomAttribute = undefined;
+  exports.CreditCardCvcCustomAttribute = undefined;
 
   var _creditcards2 = _interopRequireDefault(_creditcards);
 
@@ -63,38 +63,39 @@ define(['exports', 'aurelia-framework', './creditcards'], function (exports, _au
     throw new Error('Decorating class property failed. Please ensure that transform-class-properties is enabled.');
   }
 
-  var _desc, _value, _class, _descriptor, _descriptor2, _descriptor3, _descriptor4;
+  var _desc, _value, _class, _descriptor, _descriptor2, _descriptor3;
 
-  var CreditCardCustomAttribute = exports.CreditCardCustomAttribute = (_class = function () {
-    function CreditCardCustomAttribute() {
-      _classCallCheck(this, CreditCardCustomAttribute);
+  var CreditCardCvcCustomAttribute = exports.CreditCardCvcCustomAttribute = (_class = function () {
+    function CreditCardCvcCustomAttribute() {
+      _classCallCheck(this, CreditCardCvcCustomAttribute);
 
-      _initDefineProp(this, 'number', _descriptor, this);
+      _initDefineProp(this, 'cvc', _descriptor, this);
 
-      _initDefineProp(this, 'formatted', _descriptor2, this);
+      _initDefineProp(this, 'valid', _descriptor2, this);
 
-      _initDefineProp(this, 'eagerType', _descriptor3, this);
-
-      _initDefineProp(this, 'type', _descriptor4, this);
+      _initDefineProp(this, 'type', _descriptor3, this);
     }
 
-    CreditCardCustomAttribute.prototype.numberChanged = function numberChanged(newValue, oldValue) {
-      this.formatted = _creditcards2.default.card.format(newValue);
-      this.eagerType = _creditcards2.default.card.type(newValue, true);
-      this.type = _creditcards2.default.card.type(newValue);
+    CreditCardCvcCustomAttribute.prototype.cvcChanged = function cvcChanged(newValue) {
+      this._setValidity(newValue, this.type);
     };
 
-    return CreditCardCustomAttribute;
-  }(), (_descriptor = _applyDecoratedDescriptor(_class.prototype, 'number', [_aureliaFramework.bindable], {
+    CreditCardCvcCustomAttribute.prototype.typeChanged = function typeChanged(newValue) {
+      this._setValidity(this.cvc, newValue);
+    };
+
+    CreditCardCvcCustomAttribute.prototype._setValidity = function _setValidity(cvc, type) {
+      this.valid = _creditcards2.default.cvc.isValid(cvc, type);
+    };
+
+    return CreditCardCvcCustomAttribute;
+  }(), (_descriptor = _applyDecoratedDescriptor(_class.prototype, 'cvc', [_aureliaFramework.bindable], {
     enumerable: true,
     initializer: null
-  }), _descriptor2 = _applyDecoratedDescriptor(_class.prototype, 'formatted', [_aureliaFramework.bindable], {
+  }), _descriptor2 = _applyDecoratedDescriptor(_class.prototype, 'valid', [_aureliaFramework.bindable], {
     enumerable: true,
     initializer: null
-  }), _descriptor3 = _applyDecoratedDescriptor(_class.prototype, 'eagerType', [_aureliaFramework.bindable], {
-    enumerable: true,
-    initializer: null
-  }), _descriptor4 = _applyDecoratedDescriptor(_class.prototype, 'type', [_aureliaFramework.bindable], {
+  }), _descriptor3 = _applyDecoratedDescriptor(_class.prototype, 'type', [_aureliaFramework.bindable], {
     enumerable: true,
     initializer: null
   })), _class);
