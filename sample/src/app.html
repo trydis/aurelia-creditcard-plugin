@@ -3,19 +3,30 @@
     <form>
       <div class="form-group">
         <label>Card Number</label>
-        <input class="form-control" ref="i" value="47111000" credit-card="number.bind: i.value" credit-card.ref="cc" />
+        <input class="form-control" ref="numberInput" credit-card-number="number.bind: numberInput.value" credit-card-number.ref="ccNumber"
+          value="47111000abc" />
       </div>
       <div class="form-group">
         <label>Formatted</label>
-        <div>${cc.formatted}</div>
+        <div>${ccNumber.formatted}</div>
       </div>
       <div class="form-group">
         <label>Eager Type</label>
-        <div>${cc.eagerType}</div>
+        <div>${ccNumber.eagerType}</div>
       </div>
       <div class="form-group">
         <label>Type</label>
-        <div>${cc.type}</div>
+        <div>${ccNumber.type}</div>
+      </div>
+      <hr />
+      <div class="form-group">
+        <label>CVC</label>
+        <input class="form-control" ref="cvcInput" credit-card-cvc="cvc.bind: cvcInput.value; type.bind: ccNumber.type" credit-card-cvc.ref="ccCvc"
+          value="123" />
+      </div>
+      <div class="form-group">
+        <label>CVC valid - ${ccCvc.type}</label>
+        <div>${ccCvc.valid}</div>
       </div>
     </form>
   </div>
