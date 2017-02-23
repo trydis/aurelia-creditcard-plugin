@@ -17,7 +17,7 @@ System.config({
 
   packages: {
     "/aurelia-creditcard-plugin": {
-      "main": "credit-card-attribute.js"
+      main: "index.js"
     }
   },
 

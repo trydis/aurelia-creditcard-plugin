@@ -14,7 +14,7 @@ gulp.task('serve', ['build'], function(done) {
       baseDir: paths.sample,
       routes: {
         '/aurelia-creditcard-plugin': path.join(paths.output, 'amd')
-      },
-    },
+      }
+    }
   }, done);
 });
