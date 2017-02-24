@@ -16,6 +16,9 @@ describe('the Aurelia configuration', () => {
 
   it('should register global resources', () => {
     expect(mockedConfiguration.resources)
-      .toEqual(['./credit-card-number-attribute', './credit-card-cvc-attribute']);
+      .toEqual([
+        './credit-card-number-attribute',
+        './credit-card-cvc-attribute',
+        './credit-card-exp-attribute']);
   });
 });
