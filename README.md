@@ -1,6 +1,6 @@
 # Aurelia credit card plugin
 
-[![Build Status](https://travis-ci.org/trydis/aurelia-creditcard-plugin.svg?branch=master)](https://travis-ci.org/trydis/aurelia-creditcard-plugin)
+[![npm version](https://badge.fury.io/js/aurelia-creditcard-plugin.svg)](https://www.npmjs.com/package/aurelia-creditcard-plugin) [![Build Status](https://travis-ci.org/trydis/aurelia-creditcard-plugin.svg?branch=master)](https://travis-ci.org/trydis/aurelia-creditcard-plugin)
 
 ## Building The Code
 
