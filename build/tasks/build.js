@@ -4,6 +4,8 @@ let to5 = require('gulp-babel');
 let paths = require('../paths');
 let compilerOptions = require('../babel-options');
 let assign = Object.assign || require('object.assign');
+let browserify = require('browserify');
+let source = require('vinyl-source-stream');
 
 gulp.task('build-html', function() {
   return gulp.src(paths.html)
@@ -45,9 +47,23 @@ gulp.task('build-system', function() {
     .pipe(gulp.dest(paths.output + 'system'));
 });
 
+gulp.task('build-creditcards', function() {
+  let creditcards = {
+    src: 'node_modules/creditcards/index.js',
+    filename: 'creditcards.js'
+  };
+
+  return browserify({ standalone: 'creditcards' })
+    .add(creditcards.src)
+    .bundle()
+    .pipe(source(creditcards.filename))
+    .pipe(gulp.dest(paths.root));
+});
+
 gulp.task('build', function(callback) {
   return runSequence(
     'clean',
+    'build-creditcards',
     ['build-html', 'build-css', 'build-es2015', 'build-commonjs', 'build-amd', 'build-system'],
     callback
   );

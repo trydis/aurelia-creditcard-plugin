@@ -33,6 +33,7 @@
     "babel-preset-es2015-loose": "^7.0.0",
     "babel-preset-stage-1": "^6.5.0",
     "browser-sync": "^2.18.8",
+    "browserify": "^14.1.0",
     "conventional-changelog": "1.1.0",
     "del": "^2.2.1",
     "gulp": "^3.9.1",
@@ -54,6 +55,7 @@
     "require-dir": "^0.3.0",
     "run-sequence": "^1.2.2",
     "vinyl-paths": "^2.1.0",
+    "vinyl-source-stream": "^1.1.0",
     "yargs": "^4.8.1"
   },
   "jspm": {
@@ -71,5 +73,8 @@
       "aurelia-templating-binding": "^1.2.0",
       "aurelia-testing": "^1.0.0-beta.2.0.1"
     }
+  },
+  "dependencies": {
+    "creditcards": "^2.1.2"
   }
 }
